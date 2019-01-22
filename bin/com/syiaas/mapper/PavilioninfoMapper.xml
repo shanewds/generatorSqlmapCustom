@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.syiass.dao.PavilioninfoMapper" >
+  <resultMap id="BaseResultMap" type="com.syiaas.pojo.Pavilioninfo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="exhibitionid" property="exhibitionid" jdbcType="BIGINT" />
+    <result column="matchid" property="matchid" jdbcType="BIGINT" />
+    <result column="exhibitorsnum" property="exhibitorsnum" jdbcType="INTEGER" />
+    <result column="peoplenum" property="peoplenum" jdbcType="INTEGER" />
+    <result column="area" property="area" jdbcType="DOUBLE" />
+    <result column="netarea" property="netarea" jdbcType="DOUBLE" />
+    <result column="contacts" property="contacts" jdbcType="VARCHAR" />
+    <result column="telephone" property="telephone" jdbcType="BIGINT" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="leftdownx" property="leftdownx" jdbcType="DOUBLE" />
+    <result column="leftdowny" property="leftdowny" jdbcType="DOUBLE" />
+    <result column="leftupx" property="leftupx" jdbcType="DOUBLE" />
+    <result column="leftupy" property="leftupy" jdbcType="DOUBLE" />
+    <result column="rightdownx" property="rightdownx" jdbcType="DOUBLE" />
+    <result column="rightdowny" property="rightdowny" jdbcType="DOUBLE" />
+    <result column="rightupx" property="rightupx" jdbcType="DOUBLE" />
+    <result column="rightupy" property="rightupy" jdbcType="DOUBLE" />
+    <result column="desp" property="desp" jdbcType="VARCHAR" />
+    <result column="calcstime" property="calcstime" jdbcType="INTEGER" />
+    <result column="calcetime" property="calcetime" jdbcType="INTEGER" />
+    <result column="zwtype" property="zwtype" jdbcType="INTEGER" />
+    <result column="abc" property="abc" jdbcType="DOUBLE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, exhibitionid, matchid, exhibitorsnum, peoplenum, area, netarea, contacts, 
+    telephone, email, leftdownx, leftdowny, leftupx, leftupy, rightdownx, rightdowny, 
+    rightupx, rightupy, desp, calcstime, calcetime, zwtype, abc
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from pavilioninfo
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from pavilioninfo
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.syiaas.pojo.Pavilioninfo" >
+    insert into pavilioninfo (id, name, exhibitionid, 
+      matchid, exhibitorsnum, peoplenum, 
+      area, netarea, contacts, 
+      telephone, email, leftdownx, 
+      leftdowny, leftupx, leftupy, 
+      rightdownx, rightdowny, rightupx, 
+      rightupy, desp, calcstime, 
+      calcetime, zwtype, abc
+      )
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{exhibitionid,jdbcType=BIGINT}, 
+      #{matchid,jdbcType=BIGINT}, #{exhibitorsnum,jdbcType=INTEGER}, #{peoplenum,jdbcType=INTEGER}, 
+      #{area,jdbcType=DOUBLE}, #{netarea,jdbcType=DOUBLE}, #{contacts,jdbcType=VARCHAR}, 
+      #{telephone,jdbcType=BIGINT}, #{email,jdbcType=VARCHAR}, #{leftdownx,jdbcType=DOUBLE}, 
+      #{leftdowny,jdbcType=DOUBLE}, #{leftupx,jdbcType=DOUBLE}, #{leftupy,jdbcType=DOUBLE}, 
+      #{rightdownx,jdbcType=DOUBLE}, #{rightdowny,jdbcType=DOUBLE}, #{rightupx,jdbcType=DOUBLE}, 
+      #{rightupy,jdbcType=DOUBLE}, #{desp,jdbcType=VARCHAR}, #{calcstime,jdbcType=INTEGER}, 
+      #{calcetime,jdbcType=INTEGER}, #{zwtype,jdbcType=INTEGER}, #{abc,jdbcType=DOUBLE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.syiaas.pojo.Pavilioninfo" >
+    insert into pavilioninfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="exhibitionid != null" >
+        exhibitionid,
+      </if>
+      <if test="matchid != null" >
+        matchid,
+      </if>
+      <if test="exhibitorsnum != null" >
+        exhibitorsnum,
+      </if>
+      <if test="peoplenum != null" >
+        peoplenum,
+      </if>
+      <if test="area != null" >
+        area,
+      </if>
+      <if test="netarea != null" >
+        netarea,
+      </if>
+      <if test="contacts != null" >
+        contacts,
+      </if>
+      <if test="telephone != null" >
+        telephone,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="leftdownx != null" >
+        leftdownx,
+      </if>
+      <if test="leftdowny != null" >
+        leftdowny,
+      </if>
+      <if test="leftupx != null" >
+        leftupx,
+      </if>
+      <if test="leftupy != null" >
+        leftupy,
+      </if>
+      <if test="rightdownx != null" >
+        rightdownx,
+      </if>
+      <if test="rightdowny != null" >
+        rightdowny,
+      </if>
+      <if test="rightupx != null" >
+        rightupx,
+      </if>
+      <if test="rightupy != null" >
+        rightupy,
+      </if>
+      <if test="desp != null" >
+        desp,
+      </if>
+      <if test="calcstime != null" >
+        calcstime,
+      </if>
+      <if test="calcetime != null" >
+        calcetime,
+      </if>
+      <if test="zwtype != null" >
+        zwtype,
+      </if>
+      <if test="abc != null" >
+        abc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="exhibitionid != null" >
+        #{exhibitionid,jdbcType=BIGINT},
+      </if>
+      <if test="matchid != null" >
+        #{matchid,jdbcType=BIGINT},
+      </if>
+      <if test="exhibitorsnum != null" >
+        #{exhibitorsnum,jdbcType=INTEGER},
+      </if>
+      <if test="peoplenum != null" >
+        #{peoplenum,jdbcType=INTEGER},
+      </if>
+      <if test="area != null" >
+        #{area,jdbcType=DOUBLE},
+      </if>
+      <if test="netarea != null" >
+        #{netarea,jdbcType=DOUBLE},
+      </if>
+      <if test="contacts != null" >
+        #{contacts,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null" >
+        #{telephone,jdbcType=BIGINT},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="leftdownx != null" >
+        #{leftdownx,jdbcType=DOUBLE},
+      </if>
+      <if test="leftdowny != null" >
+        #{leftdowny,jdbcType=DOUBLE},
+      </if>
+      <if test="leftupx != null" >
+        #{leftupx,jdbcType=DOUBLE},
+      </if>
+      <if test="leftupy != null" >
+        #{leftupy,jdbcType=DOUBLE},
+      </if>
+      <if test="rightdownx != null" >
+        #{rightdownx,jdbcType=DOUBLE},
+      </if>
+      <if test="rightdowny != null" >
+        #{rightdowny,jdbcType=DOUBLE},
+      </if>
+      <if test="rightupx != null" >
+        #{rightupx,jdbcType=DOUBLE},
+      </if>
+      <if test="rightupy != null" >
+        #{rightupy,jdbcType=DOUBLE},
+      </if>
+      <if test="desp != null" >
+        #{desp,jdbcType=VARCHAR},
+      </if>
+      <if test="calcstime != null" >
+        #{calcstime,jdbcType=INTEGER},
+      </if>
+      <if test="calcetime != null" >
+        #{calcetime,jdbcType=INTEGER},
+      </if>
+      <if test="zwtype != null" >
+        #{zwtype,jdbcType=INTEGER},
+      </if>
+      <if test="abc != null" >
+        #{abc,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.syiaas.pojo.Pavilioninfo" >
+    update pavilioninfo
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="exhibitionid != null" >
+        exhibitionid = #{exhibitionid,jdbcType=BIGINT},
+      </if>
+      <if test="matchid != null" >
+        matchid = #{matchid,jdbcType=BIGINT},
+      </if>
+      <if test="exhibitorsnum != null" >
+        exhibitorsnum = #{exhibitorsnum,jdbcType=INTEGER},
+      </if>
+      <if test="peoplenum != null" >
+        peoplenum = #{peoplenum,jdbcType=INTEGER},
+      </if>
+      <if test="area != null" >
+        area = #{area,jdbcType=DOUBLE},
+      </if>
+      <if test="netarea != null" >
+        netarea = #{netarea,jdbcType=DOUBLE},
+      </if>
+      <if test="contacts != null" >
+        contacts = #{contacts,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null" >
+        telephone = #{telephone,jdbcType=BIGINT},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="leftdownx != null" >
+        leftdownx = #{leftdownx,jdbcType=DOUBLE},
+      </if>
+      <if test="leftdowny != null" >
+        leftdowny = #{leftdowny,jdbcType=DOUBLE},
+      </if>
+      <if test="leftupx != null" >
+        leftupx = #{leftupx,jdbcType=DOUBLE},
+      </if>
+      <if test="leftupy != null" >
+        leftupy = #{leftupy,jdbcType=DOUBLE},
+      </if>
+      <if test="rightdownx != null" >
+        rightdownx = #{rightdownx,jdbcType=DOUBLE},
+      </if>
+      <if test="rightdowny != null" >
+        rightdowny = #{rightdowny,jdbcType=DOUBLE},
+      </if>
+      <if test="rightupx != null" >
+        rightupx = #{rightupx,jdbcType=DOUBLE},
+      </if>
+      <if test="rightupy != null" >
+        rightupy = #{rightupy,jdbcType=DOUBLE},
+      </if>
+      <if test="desp != null" >
+        desp = #{desp,jdbcType=VARCHAR},
+      </if>
+      <if test="calcstime != null" >
+        calcstime = #{calcstime,jdbcType=INTEGER},
+      </if>
+      <if test="calcetime != null" >
+        calcetime = #{calcetime,jdbcType=INTEGER},
+      </if>
+      <if test="zwtype != null" >
+        zwtype = #{zwtype,jdbcType=INTEGER},
+      </if>
+      <if test="abc != null" >
+        abc = #{abc,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.syiaas.pojo.Pavilioninfo" >
+    update pavilioninfo
+    set name = #{name,jdbcType=VARCHAR},
+      exhibitionid = #{exhibitionid,jdbcType=BIGINT},
+      matchid = #{matchid,jdbcType=BIGINT},
+      exhibitorsnum = #{exhibitorsnum,jdbcType=INTEGER},
+      peoplenum = #{peoplenum,jdbcType=INTEGER},
+      area = #{area,jdbcType=DOUBLE},
+      netarea = #{netarea,jdbcType=DOUBLE},
+      contacts = #{contacts,jdbcType=VARCHAR},
+      telephone = #{telephone,jdbcType=BIGINT},
+      email = #{email,jdbcType=VARCHAR},
+      leftdownx = #{leftdownx,jdbcType=DOUBLE},
+      leftdowny = #{leftdowny,jdbcType=DOUBLE},
+      leftupx = #{leftupx,jdbcType=DOUBLE},
+      leftupy = #{leftupy,jdbcType=DOUBLE},
+      rightdownx = #{rightdownx,jdbcType=DOUBLE},
+      rightdowny = #{rightdowny,jdbcType=DOUBLE},
+      rightupx = #{rightupx,jdbcType=DOUBLE},
+      rightupy = #{rightupy,jdbcType=DOUBLE},
+      desp = #{desp,jdbcType=VARCHAR},
+      calcstime = #{calcstime,jdbcType=INTEGER},
+      calcetime = #{calcetime,jdbcType=INTEGER},
+      zwtype = #{zwtype,jdbcType=INTEGER},
+      abc = #{abc,jdbcType=DOUBLE}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

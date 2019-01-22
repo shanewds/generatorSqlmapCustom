@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.syiass.dao.ExhibitioninfoMapper" >
+  <resultMap id="BaseResultMap" type="com.syiaas.pojo.Exhibitioninfo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="hostunit" property="hostunit" jdbcType="VARCHAR" />
+    <result column="undertakeunit" property="undertakeunit" jdbcType="VARCHAR" />
+    <result column="pavilion" property="pavilion" jdbcType="VARCHAR" />
+    <result column="area" property="area" jdbcType="DOUBLE" />
+    <result column="netarea" property="netarea" jdbcType="DOUBLE" />
+    <result column="peoplenum" property="peoplenum" jdbcType="INTEGER" />
+    <result column="stime" property="stime" jdbcType="VARCHAR" />
+    <result column="etime" property="etime" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="exhibitorsnum" property="exhibitorsnum" jdbcType="INTEGER" />
+    <result column="contacts" property="contacts" jdbcType="VARCHAR" />
+    <result column="telephone" property="telephone" jdbcType="BIGINT" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="desp" property="desp" jdbcType="VARCHAR" />
+    <result column="daytabcfg" property="daytabcfg" jdbcType="INTEGER" />
+    <result column="daystarttime" property="daystarttime" jdbcType="INTEGER" />
+    <result column="dayendtime" property="dayendtime" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="reservedtype1" property="reservedtype1" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, hostunit, undertakeunit, pavilion, area, netarea, peoplenum, stime, etime, 
+    address, exhibitorsnum, contacts, telephone, email, desp, daytabcfg, daystarttime, 
+    dayendtime, type, reservedtype1
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from exhibitioninfo
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from exhibitioninfo
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.syiaas.pojo.Exhibitioninfo" >
+    insert into exhibitioninfo (id, name, hostunit, 
+      undertakeunit, pavilion, area, 
+      netarea, peoplenum, stime, 
+      etime, address, exhibitorsnum, 
+      contacts, telephone, email, 
+      desp, daytabcfg, daystarttime, 
+      dayendtime, type, reservedtype1
+      )
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{hostunit,jdbcType=VARCHAR}, 
+      #{undertakeunit,jdbcType=VARCHAR}, #{pavilion,jdbcType=VARCHAR}, #{area,jdbcType=DOUBLE}, 
+      #{netarea,jdbcType=DOUBLE}, #{peoplenum,jdbcType=INTEGER}, #{stime,jdbcType=VARCHAR}, 
+      #{etime,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{exhibitorsnum,jdbcType=INTEGER}, 
+      #{contacts,jdbcType=VARCHAR}, #{telephone,jdbcType=BIGINT}, #{email,jdbcType=VARCHAR}, 
+      #{desp,jdbcType=VARCHAR}, #{daytabcfg,jdbcType=INTEGER}, #{daystarttime,jdbcType=INTEGER}, 
+      #{dayendtime,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, #{reservedtype1,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.syiaas.pojo.Exhibitioninfo" >
+    insert into exhibitioninfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="hostunit != null" >
+        hostunit,
+      </if>
+      <if test="undertakeunit != null" >
+        undertakeunit,
+      </if>
+      <if test="pavilion != null" >
+        pavilion,
+      </if>
+      <if test="area != null" >
+        area,
+      </if>
+      <if test="netarea != null" >
+        netarea,
+      </if>
+      <if test="peoplenum != null" >
+        peoplenum,
+      </if>
+      <if test="stime != null" >
+        stime,
+      </if>
+      <if test="etime != null" >
+        etime,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="exhibitorsnum != null" >
+        exhibitorsnum,
+      </if>
+      <if test="contacts != null" >
+        contacts,
+      </if>
+      <if test="telephone != null" >
+        telephone,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="desp != null" >
+        desp,
+      </if>
+      <if test="daytabcfg != null" >
+        daytabcfg,
+      </if>
+      <if test="daystarttime != null" >
+        daystarttime,
+      </if>
+      <if test="dayendtime != null" >
+        dayendtime,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="reservedtype1 != null" >
+        reservedtype1,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="hostunit != null" >
+        #{hostunit,jdbcType=VARCHAR},
+      </if>
+      <if test="undertakeunit != null" >
+        #{undertakeunit,jdbcType=VARCHAR},
+      </if>
+      <if test="pavilion != null" >
+        #{pavilion,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null" >
+        #{area,jdbcType=DOUBLE},
+      </if>
+      <if test="netarea != null" >
+        #{netarea,jdbcType=DOUBLE},
+      </if>
+      <if test="peoplenum != null" >
+        #{peoplenum,jdbcType=INTEGER},
+      </if>
+      <if test="stime != null" >
+        #{stime,jdbcType=VARCHAR},
+      </if>
+      <if test="etime != null" >
+        #{etime,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="exhibitorsnum != null" >
+        #{exhibitorsnum,jdbcType=INTEGER},
+      </if>
+      <if test="contacts != null" >
+        #{contacts,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null" >
+        #{telephone,jdbcType=BIGINT},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="desp != null" >
+        #{desp,jdbcType=VARCHAR},
+      </if>
+      <if test="daytabcfg != null" >
+        #{daytabcfg,jdbcType=INTEGER},
+      </if>
+      <if test="daystarttime != null" >
+        #{daystarttime,jdbcType=INTEGER},
+      </if>
+      <if test="dayendtime != null" >
+        #{dayendtime,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="reservedtype1 != null" >
+        #{reservedtype1,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.syiaas.pojo.Exhibitioninfo" >
+    update exhibitioninfo
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="hostunit != null" >
+        hostunit = #{hostunit,jdbcType=VARCHAR},
+      </if>
+      <if test="undertakeunit != null" >
+        undertakeunit = #{undertakeunit,jdbcType=VARCHAR},
+      </if>
+      <if test="pavilion != null" >
+        pavilion = #{pavilion,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null" >
+        area = #{area,jdbcType=DOUBLE},
+      </if>
+      <if test="netarea != null" >
+        netarea = #{netarea,jdbcType=DOUBLE},
+      </if>
+      <if test="peoplenum != null" >
+        peoplenum = #{peoplenum,jdbcType=INTEGER},
+      </if>
+      <if test="stime != null" >
+        stime = #{stime,jdbcType=VARCHAR},
+      </if>
+      <if test="etime != null" >
+        etime = #{etime,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="exhibitorsnum != null" >
+        exhibitorsnum = #{exhibitorsnum,jdbcType=INTEGER},
+      </if>
+      <if test="contacts != null" >
+        contacts = #{contacts,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null" >
+        telephone = #{telephone,jdbcType=BIGINT},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="desp != null" >
+        desp = #{desp,jdbcType=VARCHAR},
+      </if>
+      <if test="daytabcfg != null" >
+        daytabcfg = #{daytabcfg,jdbcType=INTEGER},
+      </if>
+      <if test="daystarttime != null" >
+        daystarttime = #{daystarttime,jdbcType=INTEGER},
+      </if>
+      <if test="dayendtime != null" >
+        dayendtime = #{dayendtime,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="reservedtype1 != null" >
+        reservedtype1 = #{reservedtype1,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.syiaas.pojo.Exhibitioninfo" >
+    update exhibitioninfo
+    set name = #{name,jdbcType=VARCHAR},
+      hostunit = #{hostunit,jdbcType=VARCHAR},
+      undertakeunit = #{undertakeunit,jdbcType=VARCHAR},
+      pavilion = #{pavilion,jdbcType=VARCHAR},
+      area = #{area,jdbcType=DOUBLE},
+      netarea = #{netarea,jdbcType=DOUBLE},
+      peoplenum = #{peoplenum,jdbcType=INTEGER},
+      stime = #{stime,jdbcType=VARCHAR},
+      etime = #{etime,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      exhibitorsnum = #{exhibitorsnum,jdbcType=INTEGER},
+      contacts = #{contacts,jdbcType=VARCHAR},
+      telephone = #{telephone,jdbcType=BIGINT},
+      email = #{email,jdbcType=VARCHAR},
+      desp = #{desp,jdbcType=VARCHAR},
+      daytabcfg = #{daytabcfg,jdbcType=INTEGER},
+      daystarttime = #{daystarttime,jdbcType=INTEGER},
+      dayendtime = #{dayendtime,jdbcType=INTEGER},
+      type = #{type,jdbcType=INTEGER},
+      reservedtype1 = #{reservedtype1,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
