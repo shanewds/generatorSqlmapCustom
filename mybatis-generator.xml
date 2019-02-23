@@ -49,7 +49,7 @@
                 type="MIXEDMAPPER",生成基于注解的Java Model 和相应的Mapper对象
                 type="XMLMAPPER",生成SQLMap XML文件和独立的Mapper接口
         -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.syiass.dao"  targetProject="./src">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.syiaas.dao"  targetProject="./src">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
